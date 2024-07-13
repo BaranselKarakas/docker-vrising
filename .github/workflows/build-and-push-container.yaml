@@ -1,0 +1,13 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v6.3.0
+        with:
+          push: true
+          tags: baranselkarakas/vrising-server:${{GITHUB_SHA}}
+on:
+  push:
+    branches:
+      - main
